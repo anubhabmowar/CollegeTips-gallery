@@ -1,16 +1,17 @@
+
 import type { Category, CategoryName } from '@/types';
 import { Button } from '@/components/ui/button';
-import { Wand2 } from 'lucide-react';
+// import { Wand2 } from 'lucide-react'; // Removed
 
 interface FilterBarProps {
   categories: Category[];
   activeFilter: CategoryName | 'All';
   onFilterChange: (filter: CategoryName | 'All') => void;
-  onSuggestCategories: () => void;
-  isLoadingSuggestions: boolean;
+  // onSuggestCategories: () => void; // Removed
+  // isLoadingSuggestions: boolean; // Removed
 }
 
-export function FilterBar({ categories, activeFilter, onFilterChange, onSuggestCategories, isLoadingSuggestions }: FilterBarProps) {
+export function FilterBar({ categories, activeFilter, onFilterChange }: FilterBarProps) {
   return (
     <div className="p-4 md:p-6 bg-card shadow rounded-lg m-4 md:m-8">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -36,10 +37,10 @@ export function FilterBar({ categories, activeFilter, onFilterChange, onSuggestC
             </Button>
           ))}
         </div>
-        <Button onClick={onSuggestCategories} disabled={isLoadingSuggestions} className="bg-accent hover:bg-accent/90 text-accent-foreground" size="sm">
+        {/* <Button onClick={onSuggestCategories} disabled={isLoadingSuggestions} className="bg-accent hover:bg-accent/90 text-accent-foreground" size="sm"> // Removed
           <Wand2 className="mr-2 h-4 w-4" />
           Suggest Fun Categories
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
