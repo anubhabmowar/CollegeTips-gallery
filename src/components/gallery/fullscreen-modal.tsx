@@ -31,8 +31,10 @@ export function FullscreenModal({ isOpen, onClose, photo }: FullscreenModalProps
               <Image
                 src={currentPhoto.src}
                 alt={currentPhoto.alt}
-                layout="fill"
+                layout="responsive"
                 objectFit="contain"
+                width={1200}
+                height={800}
               />
             )}
           </div>
