@@ -8,9 +8,7 @@ import { Header } from '@/components/layout/header';
 import { FilterBar } from '@/components/gallery/filter-bar';
 import { PhotoGrid } from '@/components/gallery/photo-grid';
 import { FullscreenModal } from '@/components/gallery/fullscreen-modal';
-// import { CategoryAISuggestionsDialog } from '@/components/gallery/category-ai-suggestions-dialog'; // Removed
-// import { suggestAlternativeCategoryNames } from '@/ai/flows/suggest-category-names'; // Removed
-// import { useToast } from "@/hooks/use-toast"; // Removed as it was only used for AI suggestions
+
 
 export default function PhotoGalleryPage() {
   const [allPhotos, setAllPhotos] = useState<Photo[]>([]);
@@ -18,11 +16,7 @@ export default function PhotoGalleryPage() {
   const [selectedPhotoForModal, setSelectedPhotoForModal] = useState<Photo | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   
-  // const [isCategoryAISuggestionsOpen, setIsCategoryAISuggestionsOpen] = useState(false); // Removed
-  // const [suggestedCategoryNames, setSuggestedCategoryNames] = useState<string[]>([]); // Removed
-  // const [categorySuggestionLoading, setCategorySuggestionLoading] = useState(false); // Removed
-
-  // const { toast } = useToast(); // Removed
+  
 
   useEffect(() => {
     // Simulate fetching photos
@@ -50,30 +44,8 @@ export default function PhotoGalleryPage() {
     setSelectedPhotoForModal(null);
   };
 
-  // const handleSuggestCategories = async () => { // Removed
-  //   setCategorySuggestionLoading(true);
-  //   setIsCategoryAISuggestionsOpen(true);
-  //   setSuggestedCategoryNames([]); 
-  //   try {
-  //     const currentCategoryNames = CATEGORIES.map(c => c.name);
-  //     const result = await suggestAlternativeCategoryNames({ categoryNames: currentCategoryNames });
-  //     setSuggestedCategoryNames(result.suggestedNames);
-  //   } catch (error) {
-  //     console.error("Error suggesting category names:", error);
-  //     toast({
-  //       title: "Error",
-  //       description: "Could not suggest category names. Please try again.",
-  //       variant: "destructive",
-  //     });
-  //     setSuggestedCategoryNames([]); // Clear on error
-  //   } finally {
-  //     setCategorySuggestionLoading(false);
-  //   }
-  // };
-
-  // const handleCloseCategoryAISuggestions = () => { // Removed
-  //   setIsCategoryAISuggestionsOpen(false);
-  // };
+  
+  
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -83,8 +55,7 @@ export default function PhotoGalleryPage() {
           categories={CATEGORIES}
           activeFilter={activeFilter}
           onFilterChange={handleFilterChange}
-          // onSuggestCategories={handleSuggestCategories} // Removed
-          // isLoadingSuggestions={categorySuggestionLoading} // Removed
+          
         />
         <PhotoGrid photos={filteredPhotos} onPhotoClick={handlePhotoCardClick} />
       </main>
@@ -93,12 +64,7 @@ export default function PhotoGalleryPage() {
         onClose={handleCloseModal}
         photo={selectedPhotoForModal}
       />
-      {/* <CategoryAISuggestionsDialog // Removed
-        isOpen={isCategoryAISuggestionsOpen}
-        onClose={handleCloseCategoryAISuggestions}
-        suggestedNames={suggestedCategoryNames}
-        isLoading={categorySuggestionLoading}
-      /> */}
+      
       <footer className="text-center p-4 text-sm text-muted-foreground border-t">
         © {new Date().getFullYear()} CollegeTips.in - All Rights Reserved.
       </footer>

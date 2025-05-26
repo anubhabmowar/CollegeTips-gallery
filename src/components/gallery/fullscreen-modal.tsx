@@ -2,15 +2,11 @@
 'use client';
 
 import type { Photo } from '@/types';
-// import { PLACEHOLDER_IMAGE_DATA_URI } from '@/types'; // Removed
+
 import Image from 'next/image';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-// import { ScrollArea } from '@/components/ui/scroll-area'; // Removed
-// import { suggestPhotoCaptions, type SuggestPhotoCaptionsInput } from '@/ai/flows/suggest-photo-captions'; // Removed
-// import React, { useState } from 'react'; // Removed useState as it's no longer used
-// import { useToast } from '@/hooks/use-toast'; // Removed
-// import { Loader2, Wand2 } from 'lucide-react'; // Removed
+
 
 interface FullscreenModalProps {
   isOpen: boolean;
@@ -19,33 +15,7 @@ interface FullscreenModalProps {
 }
 
 export function FullscreenModal({ isOpen, onClose, photo }: FullscreenModalProps) {
-  // const [suggestedCaptions, setSuggestedCaptions] = useState<string[]>([]); // Removed
-  // const [isLoadingSuggestions, setIsLoadingSuggestions] = useState(false); // Removed
-  // const { toast } = useToast(); // Removed
-
-  // const handleSuggestCaptions = async () => { // Removed
-  //   if (!photo) return;
-
-  //   setIsLoadingSuggestions(true);
-  //   setSuggestedCaptions([]);
-  //   try {
-  //     const input: SuggestPhotoCaptionsInput = {
-  //       photoDataUri: PLACEHOLDER_IMAGE_DATA_URI, 
-  //       category: photo.category,
-  //     };
-  //     const result = await suggestPhotoCaptions(input);
-  //     setSuggestedCaptions(result.captions);
-  //   } catch (error) {
-  //     console.error('Error suggesting captions:', error);
-  //     toast({
-  //       title: 'Error',
-  //       description: 'Could not suggest captions. Please try again.',
-  //       variant: 'destructive',
-  //     });
-  //   } finally {
-  //     setIsLoadingSuggestions(false);
-  //   }
-  // };
+  
 
   if (!photo) return null;
 
@@ -64,7 +34,7 @@ export function FullscreenModal({ isOpen, onClose, photo }: FullscreenModalProps
               alt={photo.alt}
               fill
               className="object-contain"
-              data-ai-hint={photo.aiHint}
+              
             />
           </div>
           {/* Removed AI suggestions part */}

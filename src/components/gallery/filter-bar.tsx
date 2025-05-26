@@ -1,14 +1,13 @@
 
 import type { Category, CategoryName } from '@/types';
 import { Button } from '@/components/ui/button';
-// import { Wand2 } from 'lucide-react'; // Removed
+
 
 interface FilterBarProps {
   categories: Category[];
   activeFilter: CategoryName | 'All';
   onFilterChange: (filter: CategoryName | 'All') => void;
-  // onSuggestCategories: () => void; // Removed
-  // isLoadingSuggestions: boolean; // Removed
+  
 }
 
 export function FilterBar({ categories, activeFilter, onFilterChange }: FilterBarProps) {
@@ -37,10 +36,7 @@ export function FilterBar({ categories, activeFilter, onFilterChange }: FilterBa
             </Button>
           ))}
         </div>
-        {/* <Button onClick={onSuggestCategories} disabled={isLoadingSuggestions} className="bg-accent hover:bg-accent/90 text-accent-foreground" size="sm"> // Removed
-          <Wand2 className="mr-2 h-4 w-4" />
-          Suggest Fun Categories
-        </Button> */}
+        
       </div>
     </div>
   );
